@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" class="h-100">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#712cf9">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"></link>
+
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+    <div class="vignette"></div>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+      <div>
+          <h3 class="float-md-start mb-0">ARez</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            {% url 'landingpage:index' as url_home %}
+            {% url 'projects:overview' as url_projects %}
+            <a class="nav-link fw-bold py-1 px-0 {% if request.path == url_home %} active {%endif%}" aria-current="page" href="{{url_home}}">Home</a>
+            <a class="nav-link fw-bold py-1 px-0 {% if url_projects in request.path %} active {%endif%}" href="{{url_projects}}">Projects</a>
+            <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+          </nav>
+          </div>
+      </header>
+
+      {% block content %}
+      {% endblock %}
+
+      <footer class="mt-auto text-white-50">
+          <p>Made with ❤️ using Django.</p>
+      </footer>
+      </div>
+    </div>
+  </body>
+</html>

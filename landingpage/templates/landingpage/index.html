@@ -1,4 +1,4 @@
-{% extends "landingpage/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}The landingpage {% endblock %}
 
@@ -8,7 +8,7 @@
     <h1>The #1 developer in the world</h1>
     <p class="lead">ARez is simply the smartest programmer out there. Well versed in Godot and Rust</p>
     <p class="lead">
-    <a href="{% url 'projects'%}" class="btn btn-lg btn-light fw-bold border-white bg-white">See projects</a>
+    <a href="{% url 'projects:overview'%}" class="btn btn-lg btn-light fw-bold border-white bg-white">See projects</a>
     </p>
 </main>
 {% endblock %}
