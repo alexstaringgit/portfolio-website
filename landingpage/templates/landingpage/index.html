@@ -1,25 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
-<body>
+{% extends "landingpage/base.html" %}
 
-<div class="container">
-  <ul class="nav bg-info">
-    <li class="nav-item">
-      <a class="nav-link link-light" href="/">HOME</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link link-light" href="/members">MEMBERS</a>
-    </li>
-  </ul>
+{% block title %}The landingpage {% endblock %}
 
-  {% block content %}
-  {% endblock %}
-</div>
-</body>
-</html>
+
+{% block content %}
+<main class="px-3">
+    <h1>The #1 developer in the world</h1>
+    <p class="lead">ARez is simply the smartest programmer out there. Well versed in Godot and Rust</p>
+    <p class="lead">
+    <a href="{% url 'projects'%}" class="btn btn-lg btn-light fw-bold border-white bg-white">See projects</a>
+    </p>
+</main>
+{% endblock %}
