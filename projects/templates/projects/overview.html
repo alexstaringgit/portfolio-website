@@ -4,30 +4,41 @@
 
 
 {% block content %}
-<main class="px-3">
-  <h1>Overview of Godot, Rust and Python projects</h1>
-  <p class="lead">Godot</p>
+<main class="px-3 py-4">
+  <h1>Overview of my projects</h1>
 
-  <div class="album py-5"><!--bg-body-tertiary-->
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for project in project_list %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-            <div class="card-body">
-              <h5 class="card-title">{{project.title}}</h5>
-              <p class="card-text">Project description</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+  <div class="container py-2 my-4">
+    <div class="btn-toolbar justify-content-between my-2" role="toolbar" aria-label="Filter button toolbar">
+      <div class="btn-group" role="group" aria-label="Filter button group">
+        <button type="button" class="btn btn-outline-secondary">Rust</button>
+        <button type="button" class="btn btn-outline-secondary">Python</button>
+        <button type="button" class="btn btn-outline-secondary">Godot</button>
+      </div>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for projects" aria-label="Project search bar" aria-describedby="btnGroupAddon2">
       </div>
     </div>
   </div>
+    
+  {% for project in project_list %}
+  <div class="container py-2 my-4">
+    <div class="row flex-lg-row-reverse align-items-center p-3 shadow-lg border rounded-3 {% cycle '' 'bg-body-tertiary' %}"> <!-- {% cycle 'bg-body-tertiary' 'bg-body-secondary' %}-->
+      <div class="col-lg-6 p-2">
+        {% load static %}
+        <img src="{% static 'img/twinhook_cover.png' %}" class="d-block mx-lg-auto img-fluid shadow" alt="Twinhook cover" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{project.title}}</h1>
+        
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
 </main>
 {% endblock %}
