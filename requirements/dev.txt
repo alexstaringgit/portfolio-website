@@ -3,3 +3,4 @@
 -r common.txt
 
 django-debug-toolbar==4.2.0
+django-sass==1.1.0
